@@ -1,7 +1,7 @@
 pragma solidity ^0.4.17;
 
 contract Campaign {
-  // struct for a request
+    // struct for a request
     struct Request {
         string description;
         uint256 value;
@@ -26,13 +26,26 @@ contract Campaign {
         approvers.push(msg.sender);
     }
 
-  // function for creating a new request by the manager
+    // function for creating a new request by the manager
 
-    function createRequest() public restricted{
+    function createRequest(
+        string description,
+        uint256 value,
+        address recipient
+    ) public restricted {
+        // creating a new Request instance
+        Request storage newRequest = Request({
+            description: description,
+            value: value,
+            recipient: recipient,
+            complete: false
+        });
+
+        requests.push(newRequest);
     }
 
-    modifier restricted(){
-      require(msg.sender === manager);
-      _;
+    modifier restricted() {
+        require(msg.sender == manager);
+        _;
     }
 }
