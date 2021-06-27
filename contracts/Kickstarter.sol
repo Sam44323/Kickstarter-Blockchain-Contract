@@ -1,6 +1,7 @@
 pragma solidity ^0.4.17;
 
 contract Campaign {
+  // struct for a request
     struct Request {
         string description;
         uint256 value;
@@ -18,8 +19,17 @@ contract Campaign {
         minContributionAmount = minvValue;
     }
 
+    // function for adding a contributor
+
     function contribute() public payable {
         require(msg.value > minContributionAmount);
         approvers.push(msg.sender);
+    }
+
+  // function for creating a new request by the manager
+
+    function createRequest() public {
+      require(msg.sender === manager);
+
     }
 }
