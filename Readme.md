@@ -18,8 +18,8 @@
 
 ### Techstack
 
-- Solidity
 - Typescript
+- Solidity
 - Mocha
 - Truffle
 - Web3.JS
