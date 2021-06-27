@@ -34,7 +34,7 @@ contract Campaign {
         address recipient
     ) public restricted {
         // creating a new Request instance
-        Request storage newRequest = Request({
+        Request memory newRequest = Request({
             description: description,
             value: value,
             recipient: recipient,
