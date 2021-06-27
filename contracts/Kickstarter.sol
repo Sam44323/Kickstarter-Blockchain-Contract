@@ -29,8 +29,6 @@ contract Campaign {
   // function for creating a new request by the manager
 
     function createRequest() public restricted{
-      require(msg.sender === manager);
-
     }
 
     modifier restricted(){
