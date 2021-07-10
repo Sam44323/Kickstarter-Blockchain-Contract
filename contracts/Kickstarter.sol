@@ -40,7 +40,7 @@ contract Campaign {
         uint256 value,
         address recipient
     ) public restricted {
-        // creating a new Request instance
+        // creating a new Request instance variable that stores the pointer
         Request memory newRequest = Request({
             description: description,
             value: value,
