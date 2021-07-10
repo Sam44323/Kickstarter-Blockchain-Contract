@@ -1,6 +1,6 @@
 # Kickstarter With Blockchain
 
-**This is app is aimed to solve the fraudulent activities that's been carried out by some people at Kickstarter with the supporters money**
+**This app is aimed to solve the fraudulent activities that have been carried out by some people at Kickstarter with the supporter's money**
 
 ---
 
