@@ -26,7 +26,7 @@
 
 ---
 
-Run the following command to run the script locally
+Run the following commands to run the script locally
 
 ### For installing the packages
 
