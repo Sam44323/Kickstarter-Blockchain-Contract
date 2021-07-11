@@ -28,16 +28,52 @@
 
 Run the following command to run the script locally
 
+### For installing the packages
+
+---
+
 ```
-yarn // for installing the packages
+yarn
+```
 
-yarn watch // for compiling the typescript files
+---
 
-yarn compile // for compiling the contract
+### For compiling the typescript files
 
-yarn test // for testing the contract
+---
 
-yarn deploy // for deploying a contract
+```
+yarn watch
+```
+
+---
+
+### For compiling the contract
+
+---
+
+```
+yarn compile
+```
+
+---
+
+### For testing the contract
+
+---
+
+```
+yarn test
+```
+
+---
+
+### For deploying the contract
+
+---
+
+```
+yarn deploy
 ```
 
 ---
