@@ -12,13 +12,13 @@ contract Campaign {
     /**
         manager: storing the address of the fund requester
         minContributionAmount: storing the min contribution amount set by the manager
-        approvers: storing the array of the approvers/contributors for the project
+        approvers: storing a map of the approvers/contributors for the project
         request: storing the array of requests initiated by the manager
      */
 
     address public manager;
     uint256 public minContributionAmount;
-    address[] public approvers;
+    mapping(address => bool) public approvers;
     Request[] public requests;
 
     constructor(uint256 minvValue) public {
@@ -30,7 +30,7 @@ contract Campaign {
 
     function contribute() public payable {
         require(msg.value > minContributionAmount);
-        approvers.push(msg.sender);
+        approvers[msg.sender] = true;
     }
 
     // function for creating a new request by the manager
