@@ -6,8 +6,8 @@
   "scripts": {
     "test": "mocha",
     "watch": "tsc -w",
-    "compile": "node compile.js",
-    "deploy": "node deploy.js"
+    "compile": "node build/compile.js",
+    "deploy": "node build/deploy.js"
   },
   "author": "",
   "license": "ISC",
