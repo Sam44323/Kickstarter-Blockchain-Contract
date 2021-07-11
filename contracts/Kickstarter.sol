@@ -22,6 +22,7 @@ contract Campaign {
     uint256 public minContributionAmount;
     mapping(address => bool) public approvers;
     Request[] public requests;
+    uint256 public approversCount;
 
     constructor(uint256 minvValue) public {
         manager = msg.sender;
@@ -33,6 +34,7 @@ contract Campaign {
     function contribute() public payable {
         require(msg.value > minContributionAmount);
         approvers[msg.sender] = true;
+        approversCount++;
     }
 
     // function for creating a new request
@@ -53,11 +55,6 @@ contract Campaign {
         );
     }
 
-    modifier restricted() {
-        require(msg.sender == manager);
-        _;
-    }
-
     // function for approving a request (takes the index in params for which the function should run)
     function approveRequest(uint256 requestIndex) public {
         Request storage request = requests[requestIndex];
@@ -67,5 +64,19 @@ contract Campaign {
 
         request.approvals[msg.sender] = true;
         request.approvalCount++;
+    }
+
+    function finalizeRequest(uint256 requestIndex) public restricted {
+        Request storage request = requests[requestIndex];
+        require(!request.complete);
+        require(request.approvalCount > (approversCount / 2));
+
+        request.recipient.transfer(request.value); // transferring the the request money to the recipient
+        request.complete = true;
+    }
+
+    modifier restricted() {
+        require(msg.sender == manager);
+        _;
     }
 }
