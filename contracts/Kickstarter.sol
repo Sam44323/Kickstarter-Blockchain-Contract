@@ -35,7 +35,7 @@ contract Campaign {
         approvers[msg.sender] = true;
     }
 
-    // function for creating a new request by the manager
+    // function for creating a new request
 
     function createRequest(
         string description,
