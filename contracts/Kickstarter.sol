@@ -7,6 +7,8 @@ contract Campaign {
         uint256 value;
         address recipient;
         bool complete;
+        uint256 approvalCount;
+        mapping(address => bool) approvals;
     }
 
     /**
