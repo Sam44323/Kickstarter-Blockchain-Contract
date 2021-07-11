@@ -57,4 +57,15 @@ contract Campaign {
         require(msg.sender == manager);
         _;
     }
+
+    // function for approving a request (takes the index in params for which the function should run)
+    function approveRequest(uint256 requestIndex) public {
+        Request storage request = requests[requestIndex];
+
+        require(approvers[msg.sender]); // checking if the person is a donator
+        require(!request.approvals[msg.sender]); // checking if the person has not voted for this request before
+
+        request.approvals[msg.sender] = true;
+        request.approvalCount++;
+    }
 }
