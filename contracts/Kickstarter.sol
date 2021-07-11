@@ -1,5 +1,20 @@
 pragma solidity ^0.4.17;
 
+// creating a contract factory for creating deploying a contract
+
+contract CampaignFactory {
+    address[] public deployedCampaigns;
+
+    function createCampaign(uint256 minimumAmount) public {
+        deployedCampaigns.push(new Campaign(minimumAmount, msg.sender)); // pushing the address of the deployed campaign
+    }
+
+    function getDeployedCampaigns() public view return(address[]){
+        return deployedCampaigns;
+    }
+
+}
+
 contract Campaign {
     // struct for storing a request
     struct Request {
@@ -24,8 +39,8 @@ contract Campaign {
     Request[] public requests;
     uint256 public approversCount;
 
-    constructor(uint256 minvValue) public {
-        manager = msg.sender;
+    constructor(uint256 minvValue, address managerAddress) public {
+        manager = managerAddress;
         minContributionAmount = minvValue;
     }
 
