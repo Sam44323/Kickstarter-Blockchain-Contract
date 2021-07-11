@@ -31,6 +31,8 @@ Run the following command to run the script locally
 ```
 yarn // for installing the packages
 
+yarn watch // for compiling the typescript files
+
 yarn compile // for compiling the contract
 
 yarn test // for testing the contract
