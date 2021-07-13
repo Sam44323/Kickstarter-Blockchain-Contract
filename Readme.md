@@ -21,6 +21,7 @@
 - Typescript
 - Solidity
 - fs-extra
+- ganache-cli
 - Mocha
 - Truffle
 - Web3.JS
