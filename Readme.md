@@ -20,6 +20,7 @@
 
 - Typescript
 - Solidity
+- fs-extra
 - Mocha
 - Truffle
 - Web3.JS
