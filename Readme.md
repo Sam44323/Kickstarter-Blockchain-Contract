@@ -36,7 +36,15 @@
 
 ---
 
-### For installing the packages
+### For installing the packages(same for both ethereum folder and frontend folder)
+
+---
+
+---
+
+### For contracts
+
+---
 
 ---
 
@@ -44,44 +52,50 @@
 yarn
 ```
 
----
-
 ### For compiling the typescript files
-
----
 
 ```
 yarn watch
 ```
 
----
-
 ### For compiling the contract
-
----
 
 ```
 yarn compile
 ```
 
----
-
 ### For testing the contract
-
----
 
 ```
 yarn test
 ```
 
----
-
 ### For deploying the contract
-
----
 
 ```
 yarn deploy
+```
+
+---
+
+---
+
+### For Frontend
+
+---
+
+---
+
+### For starting the dev server
+
+```
+yarn start
+```
+
+### For building deployed file
+
+```
+yarn build
 ```
 
 ---
