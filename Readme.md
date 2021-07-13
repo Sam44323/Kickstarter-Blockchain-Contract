@@ -23,10 +23,16 @@
 - Mocha
 - Truffle
 - Web3.JS
+- Jest
+- React.JS
 
 ---
 
-Run the following commands to run the script locally
+---
+
+**Run the following commands to run the script locally**
+
+---
 
 ### For installing the packages
 
