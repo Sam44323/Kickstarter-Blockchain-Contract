@@ -6,7 +6,7 @@
 
 ### Properties
 
-- A manager opts to gather crowdfunding for his/her idea
+- A manager chooses to gather crowdfunding for his/her idea
 
 - It's been pitched with a **Minimum Contributor Amount** i.e. less that this amount won't be accepted
 
