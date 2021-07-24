@@ -6,8 +6,8 @@
   "scripts": {
     "test": "mocha",
     "watch": "tsc -w",
-    "compile": "node build/compile.js",
-    "deploy": "node build/deploy.js"
+    "compile": "node compile.js",
+    "deploy": "node deploy.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,10 +17,6 @@
     "ganache-cli": "^6.12.2",
     "mocha": "^8.3.2",
     "solc": "^0.4.17",
-    "typescript": "^4.3.4",
     "web3": "^1.3.5"
-  },
-  "devDependencies": {
-    "@types/fs-extra": "^9.0.12"
   }
 }
