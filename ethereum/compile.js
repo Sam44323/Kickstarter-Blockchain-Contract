@@ -13,7 +13,7 @@ fs.ensureDirSync(buildPath);
 
 for (let contract in output) {
   fs.outputJsonSync(
-    path.resolve(buildPath, contract + ".json"),
+    path.resolve(buildPath, `${contract.substring(1)}.json`),
     output[contract]
   );
 }
