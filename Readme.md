@@ -18,8 +18,9 @@
 
 ### Techstack
 
-- Typescript
+- Javascript
 - Solidity
+- Typescript
 - fs-extra
 - ganache-cli
 - Mocha
