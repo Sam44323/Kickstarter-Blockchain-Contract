@@ -2,3 +2,4 @@ node_modules
 ..gpg
 /ethereum/build
 node_modules
+.env
