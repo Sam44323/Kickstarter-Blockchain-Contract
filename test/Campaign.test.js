@@ -51,4 +51,9 @@ describe("Campaigns", () => {
     assert.ok(factory.options.address);
     assert.ok(campaign.options.address);
   });
+
+  it("marks caller of the create campaign method as the manager", async () => {
+    const managerAddress = await campaign.methods.manager().call();
+    assert(managerAddress, accounts[0]);
+  });
 });
