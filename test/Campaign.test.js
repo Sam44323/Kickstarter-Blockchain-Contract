@@ -5,9 +5,6 @@ const web3 = new Web3(ganache.provider());
 
 const compiledFactory = require("../ethereum/build/CampaignFactory.json");
 const compiledContract = require("../ethereum/build/Campaign.json");
-const {
-  isTargetLikeServerless,
-} = require("next/dist/next-server/server/config");
 
 let accounts; // storing the accounts of ganache addresses
 let factory; // storing the factory instance for the factory contract
@@ -107,7 +104,7 @@ describe("Campaigns", () => {
         gas: "1000000",
       });
 
-    await campaign.methods.approveRequest(1).send({
+    await campaign.methods.approveRequest(0).send({
       from: accounts[0],
       gas: "1000000",
     });
@@ -120,7 +117,6 @@ describe("Campaigns", () => {
     let balance = await web3.eth.getBalance(accounts[1]);
     balance = web3.utils.fromWei(balance, "ether");
     balance = parseFloat(balance);
-    console.log(balance);
     assert(balance > 104);
   });
 });
