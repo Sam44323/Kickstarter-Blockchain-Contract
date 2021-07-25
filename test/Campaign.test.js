@@ -31,5 +31,7 @@ beforeEach(async () => {
     .createCampaign("100")
     .send({ from: accounts[0], gas: "10000000" });
 
-  [campaignAddress] = await factory.methods.getDeployedCampaigns().call(); // getting the first address for the campaign(for test cases, it will always be length of one) and storing it in the campaignAddress
+  // getting the first address for the campaign(for test cases, it will always be length of one) and storing it in the campaignAddress
+
+  [campaignAddress] = await factory.methods.getDeployedCampaigns().call();
 });
