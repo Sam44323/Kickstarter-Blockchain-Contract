@@ -5,6 +5,9 @@ const web3 = new Web3(ganache.provider());
 
 const compiledFactory = require("../ethereum/build/CampaignFactory.json");
 const compiledContract = require("../ethereum/build/Campaign.json");
+const {
+  isTargetLikeServerless,
+} = require("next/dist/next-server/server/config");
 
 let accounts; // storing the accounts of ganache addresses
 let factory; // storing the factory instance for the factory contract
@@ -22,14 +25,14 @@ beforeEach(async () => {
     })
     .send({
       from: accounts[0],
-      gas: "10000000",
+      gas: "1000000",
     });
 
   // creating an instance of the campaign from the factory
 
   await factory.methods
     .createCampaign("100")
-    .send({ from: accounts[0], gas: "10000000" });
+    .send({ from: accounts[0], gas: "1000000" });
 
   // getting the first address for the campaign(for test cases, it will always be length of one) and storing it in the campaignAddress
 
@@ -41,4 +44,11 @@ beforeEach(async () => {
     JSON.parse(compiledContract.interface),
     campaignAddress
   );
+});
+
+describe("Campaigns", () => {
+  it("deploys a factory and a campaign", () => {
+    assert.ok(factory.options.address);
+    assert.ok(campaign.options.address);
+  });
 });
