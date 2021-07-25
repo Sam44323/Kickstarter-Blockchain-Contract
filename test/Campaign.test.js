@@ -34,4 +34,11 @@ beforeEach(async () => {
   // getting the first address for the campaign(for test cases, it will always be length of one) and storing it in the campaignAddress
 
   [campaignAddress] = await factory.methods.getDeployedCampaigns().call();
+
+  // creating a local instance for the campaign based on the abi and the address to which it is deployed
+
+  campaign = await new web3.eth.Contract(
+    JSON.parse(compiledContract.interface),
+    campaignAddress
+  );
 });
