@@ -54,6 +54,6 @@ describe("Campaigns", () => {
 
   it("marks caller of the create campaign method as the manager", async () => {
     const managerAddress = await campaign.methods.manager().call();
-    assert(managerAddress, accounts[0]);
+    assert.strictEqual(managerAddress, accounts[0]);
   });
 });
