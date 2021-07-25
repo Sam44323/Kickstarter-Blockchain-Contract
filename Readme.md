@@ -22,6 +22,7 @@
 - Solidity
 - Typescript
 - fs-extra
+- dotenv
 - ganache-cli
 - Mocha
 - Truffle
