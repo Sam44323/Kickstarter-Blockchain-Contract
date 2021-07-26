@@ -91,7 +91,7 @@ yarn deploy
 ### For starting the dev server
 
 ```
-yarn start
+yarn dev
 ```
 
 ### For building deployed file
