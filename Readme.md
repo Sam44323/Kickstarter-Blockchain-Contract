@@ -28,7 +28,7 @@
 - Truffle
 - Web3.JS
 - Jest
-- React.JS
+- Next.JS
 
 ---
 
