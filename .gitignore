@@ -3,3 +3,4 @@ node_modules
 /ethereum/build
 node_modules
 .env
+.next
