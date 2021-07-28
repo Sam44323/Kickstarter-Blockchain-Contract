@@ -27,8 +27,8 @@
 - Mocha
 - Truffle
 - Web3.JS
-- Jest
 - Next.JS
+- Jest 
 
 ---
 
