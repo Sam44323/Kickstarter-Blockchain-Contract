@@ -23,7 +23,7 @@
 - Typescript
 - fs-extra
 - dotenv
-- ganache-cli
+- Ganache-cli
 - Mocha
 - Truffle
 - Web3.JS
