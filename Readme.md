@@ -4,7 +4,7 @@
 
 ---
 
-### Properties
+### Features
 
 - A manager chooses to gather crowdfunding for his/her idea
 
