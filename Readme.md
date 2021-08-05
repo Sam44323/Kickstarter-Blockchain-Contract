@@ -24,6 +24,7 @@
 - Web3.JS
 - Next.JS
 - Jest
+- Semantic-UI
 
 **Backend**
 
