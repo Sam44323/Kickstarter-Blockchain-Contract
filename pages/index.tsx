@@ -5,10 +5,15 @@ import { GetServerSideProps } from "next";
 const CampaignHome: React.FC<{
   campaigns: string[];
 }> = (props) => {
-  const renderItems = (): { header: string; description: any }[] => {
+  const renderItems = (): {
+    header: string;
+    description: any;
+    fluid: boolean;
+  }[] => {
     return props.campaigns.map((item) => ({
       header: item,
       description: <a>View Campaign</a>,
+      fluid: true,
     }));
   };
   console.log(renderItems());
