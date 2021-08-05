@@ -18,17 +18,22 @@
 
 ### Techstack
 
+**Frontend**
+
+- Typescript
+- Web3.JS
+- Next.JS
+- Jest
+
+**Backend**
+
 - Javascript
 - Solidity
-- Typescript
 - fs-extra
 - dotenv
 - Ganache-cli
 - Mocha
 - Truffle
-- Web3.JS
-- Next.JS
-- Jest 
 
 ---
 
