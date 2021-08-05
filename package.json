@@ -1,7 +1,7 @@
 {
   "name": "kickstart",
   "version": "1.0.0",
-  "description": "",
+  "description": "Kickstarter with blockchain",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
