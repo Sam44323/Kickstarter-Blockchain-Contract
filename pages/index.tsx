@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import factory from "../ethereum/Factory";
 import { GetServerSideProps } from "next";
 
@@ -8,7 +8,6 @@ const CampaignHome: React.FC<{ campaigns: string[] }> = (props) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  console.log(context);
   const campaigns = await factory.methods.getDeployedCampaigns().call();
   return {
     props: {
