@@ -3,8 +3,13 @@ import factory from "../ethereum/Factory";
 import { GetServerSideProps } from "next";
 
 const CampaignHome: React.FC<{ campaigns: string[] }> = (props) => {
-  console.log(props.campaigns);
-  return <>Campaigns Index!</>;
+  return (
+    <>
+      {props.campaigns.map((campaign) => (
+        <h1>{campaign}</h1>
+      ))}
+    </>
+  );
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
