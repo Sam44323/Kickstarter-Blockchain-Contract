@@ -25,6 +25,7 @@
 - Next.JS
 - Jest
 - Semantic-UI-React
+- Semantic-UI-CSS
 
 **Backend**
 
