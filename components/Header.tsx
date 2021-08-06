@@ -15,7 +15,11 @@ const MenuItem: React.FC<{ name: string; clickHandler: () => void }> = ({
 
 const Header: React.FC = () => {
   return (
-    <Menu>
+    <Menu
+      style={{
+        marginTop: "10px",
+      }}
+    >
       <MenuItem name="crowdcoin" clickHandler={() => null}>
         CrowdCoin
       </MenuItem>
