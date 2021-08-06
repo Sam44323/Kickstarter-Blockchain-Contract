@@ -1,7 +1,7 @@
 import React from "react";
 import factory from "../ethereum/Factory";
 import { GetServerSideProps } from "next";
-import { Card } from "semantic-ui-react";
+import { Card, Button } from "semantic-ui-react";
 
 const CampaignHome: React.FC<{
   campaigns: string[];
@@ -20,6 +20,7 @@ const CampaignHome: React.FC<{
   return (
     <>
       <Card.Group items={renderItems()} />
+      <Button content="Create Campaign" icon="add" primary />
     </>
   );
 };
