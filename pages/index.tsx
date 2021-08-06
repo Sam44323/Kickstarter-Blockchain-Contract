@@ -16,7 +16,6 @@ const CampaignHome: React.FC<{
       fluid: true,
     }));
   };
-  console.log(renderItems());
   return <>nice</>;
 };
 
