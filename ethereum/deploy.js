@@ -5,7 +5,7 @@ const compiledFactory = require("./build/CampaignFactory.json");
 
 const provider = new HDWalletProvider(
   process.env.SECRET_PHRASE,
-  process.env.URL
+  "https://rinkeby.infura.io/v3/c65de9dd9e6a4d2cb17c756fb3f6a446"
 );
 
 const web3 = new Web3(provider);
@@ -20,7 +20,7 @@ const deploy = async () => {
     })
     .send({
       from: accounts[0],
-      gas: "1000000",
+      gas: "10000",
       gasPrice: web3.utils.toWei("2", "gwei"),
     });
   console.log("Contract deployed to ", result.options.address);
