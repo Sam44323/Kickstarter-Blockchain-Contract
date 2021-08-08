@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Button, Form, Container, Input } from "semantic-ui-react";
 
 const NewCampaign: React.FC = () => {
   const [price, setPrice] = useState<string>("");
+
+  const createNewCampaign = () => {
+    if (price.length === 0) {
+      alert("set a value!");
+      return;
+    }
+    alert("Submitted!");
+    setPrice("");
+  };
 
   return (
     <Container fluid={true}>
@@ -19,7 +28,13 @@ const NewCampaign: React.FC = () => {
             value={price}
           />
         </Form.Field>
-        <Button type="submit" secondary icon="add" content="Create" />
+        <Button
+          type="submit"
+          secondary
+          icon="add"
+          content="Create"
+          onClick={createNewCampaign}
+        />
       </Form>
     </Container>
   );
