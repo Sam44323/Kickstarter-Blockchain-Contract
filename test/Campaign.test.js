@@ -87,6 +87,8 @@ describe("Campaigns", () => {
     assert("Buy some batteries", request.description);
   });
 
+  // end-to-end test
+
   it("processes a request", async () => {
     await campaign.methods.contribute().send({
       value: web3.utils.toWei("10", "ether"),
