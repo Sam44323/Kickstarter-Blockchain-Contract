@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { Button, Form, Container, Input } from "semantic-ui-react";
 
 const NewCampaign: React.FC = () => {
   const [price, setPrice] = useState<string>("");
 
-  const createNewCampaign = () => {
+  const createNewCampaign = (e: FormEvent) => {
+    e.preventDefault();
     if (price.length === 0) {
       alert("set a value!");
       return;
