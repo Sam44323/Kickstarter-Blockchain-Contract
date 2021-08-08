@@ -10,7 +10,7 @@ const NewCampaign: React.FC = () => {
   const disappearingError = () => {
     setTimeout(() => {
       setError(false);
-    }, 3500);
+    }, 7500);
   };
 
   const createNewCampaign = async (e: FormEvent) => {
@@ -34,13 +34,13 @@ const NewCampaign: React.FC = () => {
         <Message negative>
           <Message.Header>Transaction Failed!</Message.Header>
           <p>
-            Either you sent value less than min contribution, or sent some wrong
-            value!
+            Either you sent value less than the minimum contribution, or sent
+            some wrong value!
           </p>
         </Message>
       )}
       <h3>Create a new campaign</h3>
-      <Form>
+      <Form onSubmit={createNewCampaign}>
         <Form.Field>
           <label>Minimum Contribution</label>
           <Input
@@ -52,13 +52,7 @@ const NewCampaign: React.FC = () => {
             value={price}
           />
         </Form.Field>
-        <Button
-          type="submit"
-          secondary
-          icon="add"
-          content="Create"
-          onClick={createNewCampaign}
-        />
+        <Button type="submit" secondary icon="add" content="Create" />
       </Form>
     </Container>
   );
