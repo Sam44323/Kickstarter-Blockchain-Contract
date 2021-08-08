@@ -49,7 +49,7 @@
 
 ---
 
-<h1 align="center" style="color: pink;">For contracts</h1>
+<h1 align="center">For contracts</h1>
 
 ```
 yarn
@@ -81,7 +81,7 @@ yarn deploy
 
 ---
 
-<h1 align="center" style="color: pink;">For Frontend</h1>
+<h1 align="center">For Frontend</h1>
 
 ### For starting the dev server
 
