@@ -1,17 +1,18 @@
 import React, { FormEvent, useState } from "react";
 import { Button, Form, Container, Input } from "semantic-ui-react";
+import factory from "../../ethereum/Factory";
+import web3 from "../../ethereum/web3";
 
 const NewCampaign: React.FC = () => {
   const [price, setPrice] = useState<string>("");
 
-  const createNewCampaign = (e: FormEvent) => {
+  const createNewCampaign = async (e: FormEvent) => {
     e.preventDefault();
-    if (price.length === 0) {
-      alert("set a value!");
-      return;
-    }
-    alert("Submitted!");
-    setPrice("");
+
+    const accounts = await web3.eth.getAccounts()[0]; // getting the accounts
+    await factory.methods.createCampaign().send({
+      from: accounts[0],
+    });
   };
 
   return (
