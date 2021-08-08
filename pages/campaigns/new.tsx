@@ -1,5 +1,12 @@
 import React, { FormEvent, useState } from "react";
-import { Button, Form, Container, Input, Message } from "semantic-ui-react";
+import {
+  Button,
+  Form,
+  Container,
+  Input,
+  Message,
+  Loader,
+} from "semantic-ui-react";
 import factory from "../../ethereum/Factory";
 import web3 from "../../ethereum/web3";
 import Router from "next/router";
@@ -7,6 +14,7 @@ import Router from "next/router";
 const NewCampaign: React.FC = () => {
   const [price, setPrice] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
+  const [loading, setLoading] = React.useState<boolean>(false);
 
   const disappearingError = () => {
     setTimeout(() => {
@@ -16,6 +24,7 @@ const NewCampaign: React.FC = () => {
 
   const createNewCampaign = async (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const accounts = await web3.eth.getAccounts(); // getting the accounts
       await factory.methods.createCampaign(price).send({
@@ -23,7 +32,7 @@ const NewCampaign: React.FC = () => {
       });
       Router.push("/");
     } catch (err) {
-      console.log(err);
+      setLoading(false);
       setError(true);
       disappearingError();
     }
@@ -42,6 +51,7 @@ const NewCampaign: React.FC = () => {
           ]}
         />
       )}
+      {loading && <Loader active size="big" content="Processing" />}
       <h3>Create a new campaign</h3>
       <Form onSubmit={createNewCampaign}>
         <Form.Field>
