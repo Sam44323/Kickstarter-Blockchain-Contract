@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, Container } from "semantic-ui-react";
+import { Button, Form, Container, Input } from "semantic-ui-react";
 
 const NewCampaign: React.FC = () => {
   return (
@@ -7,14 +7,8 @@ const NewCampaign: React.FC = () => {
       <h3>Create a new campaign</h3>
       <Form>
         <Form.Field>
-          <label>Minimum Contribution (wei)</label>
-          <input
-            type="text"
-            placeholder="0"
-            style={{
-              width: "40%",
-            }}
-          />
+          <label>Minimum Contribution</label>
+          <Input label="wei" size="big" placeholder="0" />
         </Form.Field>
         <Button type="submit" secondary icon="add" content="Create" />
       </Form>
