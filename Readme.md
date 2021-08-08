@@ -16,7 +16,7 @@
 
 ---
 
-<h1 align="center">Techstack</h1>
+<h1 align="center">Technologies</h1>
 
 **Frontend**
 
