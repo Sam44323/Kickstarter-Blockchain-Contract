@@ -20,6 +20,16 @@ const CampaignHome: React.FC<{
   return (
     <>
       <h3>Open Campaigns</h3>
+      {renderItems().length === 0 && (
+        <h1
+          style={{
+            display: "inline-block",
+            margin: 0,
+          }}
+        >
+          No Campaigns yet!
+        </h1>
+      )}
       <Button content="Create Campaign" icon="add" primary floated="right" />
       <Card.Group items={renderItems()} />
     </>
