@@ -15,7 +15,9 @@ const web3 = new Web3(provider);
 
 const deploy = async () => {
   const accounts = await web3.eth.getAccounts();
-  await new web3.eth.Contract(JSON.parse(compiledFactory.interface))
+  const result = await new web3.eth.Contract(
+    JSON.parse(compiledFactory.interface)
+  )
     .deploy({
       data: compiledFactory.bytecode,
     })
@@ -24,6 +26,7 @@ const deploy = async () => {
       gas: "1000000",
       gasPrice: web3.utils.toWei("2", "gwei"),
     });
+  console.log(result.options.address);
 };
 
 deploy();
