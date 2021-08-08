@@ -8,7 +8,7 @@ const NewCampaign: React.FC = () => {
       <Form>
         <Form.Field>
           <label>Minimum Contribution</label>
-          <Input label="wei" size="big" placeholder="0" />
+          <Input label="wei" size="big" placeholder="0" labelPosition="right" />
         </Form.Field>
         <Button type="submit" secondary icon="add" content="Create" />
       </Form>
