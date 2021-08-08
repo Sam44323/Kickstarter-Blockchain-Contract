@@ -49,13 +49,7 @@
 
 ---
 
----
-
-### For contracts
-
----
-
----
+<h1 align="center" style="color: pink;">For contracts</h1>
 
 ```
 yarn
@@ -87,13 +81,7 @@ yarn deploy
 
 ---
 
----
-
-### For Frontend
-
----
-
----
+<h1 align="center" style="color: pink;">For Frontend</h1>
 
 ### For starting the dev server
 
