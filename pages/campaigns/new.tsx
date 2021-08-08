@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { Button, Form, Container, Input } from "semantic-ui-react";
 
 const NewCampaign: React.FC = () => {
