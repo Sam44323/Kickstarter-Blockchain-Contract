@@ -1,6 +1,7 @@
 import React from "react";
 import factory from "../ethereum/Factory";
 import { GetServerSideProps } from "next";
+import Link from "next/link";
 import { Card, Button } from "semantic-ui-react";
 
 const CampaignHome: React.FC<{
@@ -13,7 +14,7 @@ const CampaignHome: React.FC<{
   }[] => {
     return props.campaigns.map((item) => ({
       header: item,
-      description: <a>View Campaign</a>,
+      description: <Link href={`/campaigns/${item}`}>View Campaign</Link>,
       fluid: true,
     }));
   };
