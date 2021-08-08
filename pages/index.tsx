@@ -1,12 +1,15 @@
 import React from "react";
 import factory from "../ethereum/Factory";
 import { GetServerSideProps } from "next";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { Card, Button } from "semantic-ui-react";
 
 const CampaignHome: React.FC<{
   campaigns: string[];
 }> = (props) => {
+  const { push } = useRouter();
+
   const renderItems = (): {
     header: string;
     description: any;
@@ -31,7 +34,13 @@ const CampaignHome: React.FC<{
           No Campaigns yet!
         </h1>
       )}
-      <Button content="Create Campaign" icon="add" primary floated="right" />
+      <Button
+        content="Create Campaign"
+        icon="add"
+        primary
+        floated="right"
+        onClick={() => push("/campaigns/new")}
+      />
       <Card.Group items={renderItems()} />
     </>
   );
