@@ -1,10 +1,10 @@
-# Kickstarter With Blockchain
+<h1 align="center">Kickstarter With Blockchain</h1>
 
 **This app is aimed to solve the fraudulent activities that have been carried out by some people at Kickstarter with the supporter's money**
 
 ---
 
-### Features
+<h1 align="center">Features</h1>
 
 - A manager chooses to gather crowdfunding for his/her idea
 
@@ -16,7 +16,7 @@
 
 ---
 
-### Techstack
+<h1 align="center">Techstack</h1>
 
 **Frontend**
 
