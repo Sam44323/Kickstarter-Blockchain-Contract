@@ -21,7 +21,7 @@ const CampaignHome: React.FC<{
     <>
       <h3>Open Campaigns</h3>
       <Card.Group items={renderItems()} />
-      <Button content="Create Campaign" icon="add" primary />
+      <Button content="Create Campaign" icon="add" primary floated="right" />
     </>
   );
 };
