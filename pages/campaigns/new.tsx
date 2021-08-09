@@ -10,6 +10,7 @@ import {
 import factory from "../../ethereum/Factory";
 import web3 from "../../ethereum/web3";
 import Router from "next/router";
+import Head from "next/head";
 
 const NewCampaign: React.FC = () => {
   const [price, setPrice] = useState<string>("");
@@ -40,6 +41,10 @@ const NewCampaign: React.FC = () => {
 
   return (
     <Container fluid={true}>
+      <Head>
+        <title>New Campaign</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       {error && (
         <Message
           negative
