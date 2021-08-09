@@ -8,7 +8,7 @@
 
 - A manager chooses to gather crowdfunding for his/her idea
 
-- It's been pitched with a **Minimum Contributor Amount** i.e. less that this amount won't be accepted
+- It's been pitched with a **Minimum Contributor Amount** i.e. less than this amount won't be accepted
 
 - This entire money is stored in a smart contract and won't be directly sent to the manager
 
