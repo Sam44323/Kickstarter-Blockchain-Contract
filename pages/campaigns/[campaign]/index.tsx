@@ -11,7 +11,7 @@ const Campaign: React.FC = () => {
         <title>{query.campaign}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <h1>{query.campaign}</h1>
+      <h1>Campaign Details</h1>
     </Container>
   );
 };
