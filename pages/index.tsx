@@ -1,6 +1,7 @@
 import React from "react";
 import factory from "../ethereum/Factory";
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Card, Button } from "semantic-ui-react";
@@ -23,6 +24,10 @@ const CampaignHome: React.FC<{
   };
   return (
     <>
+      <Head>
+        <title>CrowdCoin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <h3>Open Campaigns</h3>
       {renderItems().length === 0 && (
         <h1
