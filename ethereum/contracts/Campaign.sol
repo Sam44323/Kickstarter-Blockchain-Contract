@@ -103,4 +103,8 @@ contract Campaign {
             manager
         );
     }
+
+    function getRequestLength() public view returns(uint){
+        return requests.length
+    }
 }
