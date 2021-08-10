@@ -82,6 +82,8 @@ contract Campaign {
         request.complete = true;
     }
 
+    // for returning some data
+
     function getSumary()
         public
         view
