@@ -29,17 +29,19 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
       </Head>
       <h1>Campaign Details</h1>
       <Container>
-        <Grid columns={4} stackable>
-          <Grid.Row>
-            <ColumnComponent header={data["0"]} desc="Minimum Contribution" />
-            <ColumnComponent desc="Available Balance" header={data["1"]} />
-          </Grid.Row>
-          <Grid.Row>
-            <ColumnComponent desc="Requests Count" header={data["2"]} />
-            <ColumnComponent desc="Approvers Count" header={data["3"]} />
-          </Grid.Row>
+        <Grid columns={2} stackable>
+          <Grid columns={2} stackable>
+            <Grid.Row>
+              <ColumnComponent header={data["0"]} desc="Minimum Contribution" />
+              <ColumnComponent desc="Available Balance" header={data["1"]} />
+            </Grid.Row>
+            <Grid.Row>
+              <ColumnComponent desc="Requests Count" header={data["2"]} />
+              <ColumnComponent desc="Approvers Count" header={data["3"]} />
+            </Grid.Row>
+            <Button content="View Requests" primary onClick={() => null} />
+          </Grid>
         </Grid>
-        <Button content="View Requests" primary onClick={() => null} />
       </Container>
     </Container>
   );
