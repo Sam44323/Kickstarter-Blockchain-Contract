@@ -7,7 +7,7 @@ import CampaignGenerator from "../../../ethereum/Campaign";
 
 const Campaign: React.FC<{ data: any }> = ({ data }) => {
   const { query } = useRouter();
-  console.log(data);
+  console.log(JSON.parse(data));
   return (
     <Container>
       <Head>
@@ -21,10 +21,10 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const campaign = await CampaignGenerator(context.query.campaign);
-  console.log(await campaign.methods.getSummary().call());
+  const data = await campaign.methods.getSummary().call();
   return {
     props: {
-      data: "",
+      data: JSON.stringify(data),
     },
   };
 };
