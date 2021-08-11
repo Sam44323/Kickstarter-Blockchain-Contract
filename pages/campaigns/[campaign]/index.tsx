@@ -36,7 +36,7 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
           </Grid.Row>
           <Grid.Row>
             <ColumnComponent header="Requests Count" desc={data["2"]} />
-            <ColumnComponent header="Approvers" desc={data["3"]} />
+            <ColumnComponent header="Approvers Count" desc={data["3"]} />
           </Grid.Row>
         </Grid>
       </Container>
