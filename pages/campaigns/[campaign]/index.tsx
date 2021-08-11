@@ -33,8 +33,8 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
   const { query } = useRouter();
   data = JSON.parse(data);
 
-  const contributeHandler = (value: string) => {
-    console.log(value);
+  const contributeHandler = async (value: string) => {
+    setLoading(true);
   };
 
   return (
@@ -43,6 +43,18 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
         <title>{query.campaign}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      {error && (
+        <Message
+          negative
+          header="Transaction Failed!"
+          list={[
+            "Either you sent value less than the minimum contribution",
+            "Sent some wrong value",
+            "Rejected the transaction for proceeding!",
+          ]}
+        />
+      )}
+      {loading && <Loader active size="big" content="Processing" />}
       <Container>
         <h1>Campaign Details</h1>
         <Grid columns={2} stackable>
