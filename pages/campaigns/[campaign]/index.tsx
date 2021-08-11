@@ -4,6 +4,7 @@ import { Button, Card, Container, Grid, GridColumn } from "semantic-ui-react";
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 import CampaignGenerator from "../../../ethereum/Campaign";
+import FormComp from "../../../components/Form";
 
 const ColumnComponent: React.FC<{ header: string; desc: string }> = ({
   header,
@@ -41,6 +42,7 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
             </Grid.Row>
             <Button content="View Requests" primary onClick={() => null} />
           </Grid>
+          <FormComp />
         </Grid>
       </Container>
     </Container>
