@@ -34,6 +34,7 @@
 - fs-extra
 - dotenv
 - Ganache-cli
+- Infura
 - Mocha
 - Truffle
 
