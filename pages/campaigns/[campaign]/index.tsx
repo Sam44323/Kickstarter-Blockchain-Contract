@@ -33,6 +33,12 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
   const { query } = useRouter();
   data = JSON.parse(data);
 
+  const disappearingError = () => {
+    setTimeout(() => {
+      setError(false);
+    }, 7500);
+  };
+
   const contributeHandler = async (value: string) => {
     setLoading(true);
   };
