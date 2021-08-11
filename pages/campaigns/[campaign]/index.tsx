@@ -22,6 +22,11 @@ const ColumnComponent: React.FC<{ header: string; desc: string }> = ({
 const Campaign: React.FC<{ data: any }> = ({ data }) => {
   const { query } = useRouter();
   data = JSON.parse(data);
+
+  const contributeHandler = (value: string) => {
+    console.log(value);
+  };
+
   return (
     <Container>
       <Head>
@@ -42,7 +47,7 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
             </Grid.Row>
             <Button content="View Requests" primary onClick={() => null} />
           </Grid>
-          <FormComp />
+          <FormComp dataSubmitter={contributeHandler} />
         </Grid>
       </Container>
     </Container>

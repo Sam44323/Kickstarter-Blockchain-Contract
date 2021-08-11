@@ -1,11 +1,15 @@
 import React, { FormEvent } from "react";
 import { Form, Input, Button } from "semantic-ui-react";
 
-const FormComp: React.FC = () => {
+const FormComp: React.FC<{ dataSubmitter: (value: string) => void }> = ({
+  dataSubmitter,
+}) => {
   const [price, setPrice] = React.useState<string>("");
 
   const contributionHandler = (e: FormEvent) => {
     e.preventDefault();
+    dataSubmitter(price);
+    setPrice("");
   };
 
   return (
