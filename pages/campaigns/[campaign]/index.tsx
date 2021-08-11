@@ -1,6 +1,14 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { Button, Card, Container, Grid, GridColumn } from "semantic-ui-react";
+import {
+  Button,
+  Card,
+  Container,
+  Grid,
+  GridColumn,
+  Message,
+  Loader,
+} from "semantic-ui-react";
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 import CampaignGenerator from "../../../ethereum/Campaign";
@@ -20,6 +28,8 @@ const ColumnComponent: React.FC<{ header: string; desc: string }> = ({
 };
 
 const Campaign: React.FC<{ data: any }> = ({ data }) => {
+  const [error, setError] = React.useState<boolean>(false);
+  const [loading, setLoading] = React.useState<boolean>(false);
   const { query } = useRouter();
   data = JSON.parse(data);
 
@@ -28,13 +38,13 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
   };
 
   return (
-    <Container>
+    <>
       <Head>
         <title>{query.campaign}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <h1>Campaign Details</h1>
       <Container>
+        <h1>Campaign Details</h1>
         <Grid columns={2} stackable>
           <Grid columns={2} stackable>
             <Grid.Row>
@@ -50,7 +60,7 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
           <FormComp dataSubmitter={contributeHandler} />
         </Grid>
       </Container>
-    </Container>
+    </>
   );
 };
 
