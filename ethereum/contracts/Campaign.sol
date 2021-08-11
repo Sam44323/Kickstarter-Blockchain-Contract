@@ -84,7 +84,7 @@ contract Campaign {
 
     // for returning some data
 
-    function getSumary()
+    function getSummary()
         public
         view
         returns (
