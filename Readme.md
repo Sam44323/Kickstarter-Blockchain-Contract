@@ -82,7 +82,7 @@ yarn deploy
 
 ---
 
-<h1 align="center">For Frontend</h1>
+<h1 align="center">For frontend</h1>
 
 ### For starting the dev server
 
