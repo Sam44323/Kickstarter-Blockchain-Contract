@@ -53,7 +53,6 @@ const CampaignHome: React.FC<{
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const campaigns = await factory.methods.getDeployedCampaigns().call();
-  console.log(process.env.NEXT_PUBLIC_FACTORY_ADDRESS);
   return {
     props: {
       campaigns,
