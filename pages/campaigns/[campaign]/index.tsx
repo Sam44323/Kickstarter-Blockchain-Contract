@@ -88,16 +88,18 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
               <ColumnComponent desc="Requests Count" header={data["2"]} />
               <ColumnComponent desc="Approvers Count" header={data["3"]} />
             </Grid.Row>
-            <Grid.Row centered>
-              <Button
-                content="View Requests"
-                primary
-                onClick={() =>
-                  push(
-                    `/campaigns/${query.campaign}/requests?address=${query.campaign}`
-                  )
-                }
-              />
+            <Grid.Row>
+              <Grid.Column>
+                <Button
+                  content="View Requests"
+                  primary
+                  onClick={() =>
+                    push(
+                      `/campaigns/${query.campaign}/requests?address=${query.campaign}`
+                    )
+                  }
+                />
+              </Grid.Column>
             </Grid.Row>
           </Grid>
           <FormComp dataSubmitter={contributeHandler} />
