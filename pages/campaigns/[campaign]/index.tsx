@@ -13,6 +13,7 @@ import Head from "next/head";
 import { GetServerSideProps } from "next";
 import CampaignGenerator from "../../../ethereum/Campaign";
 import FormComp from "../../../components/Form";
+import web3 from "../../../ethereum/web3";
 
 const ColumnComponent: React.FC<{ header: string; desc: string }> = ({
   header,
@@ -30,7 +31,7 @@ const ColumnComponent: React.FC<{ header: string; desc: string }> = ({
 const Campaign: React.FC<{ data: any }> = ({ data }) => {
   const [error, setError] = React.useState<boolean>(false);
   const [loading, setLoading] = React.useState<boolean>(false);
-  const { query } = useRouter();
+  const { query, reload, pathname } = useRouter();
   data = JSON.parse(data);
 
   const disappearingError = () => {
@@ -41,6 +42,20 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
 
   const contributeHandler = async (value: string) => {
     setLoading(true);
+    try {
+      const accounts = await web3.eth.getAccounts();
+      const campaign = await CampaignGenerator(query.campaign);
+      await campaign.methods.contribute().send({
+        from: accounts[0],
+        value: web3.utils.toWei(value),
+      });
+      reload();
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+      setError(true);
+      disappearingError();
+    }
   };
 
   return (
