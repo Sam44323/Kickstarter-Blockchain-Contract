@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { Card, Container, Grid, GridColumn } from "semantic-ui-react";
+import { Button, Card, Container, Grid, GridColumn } from "semantic-ui-react";
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 import CampaignGenerator from "../../../ethereum/Campaign";
@@ -31,14 +31,15 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
       <Container>
         <Grid columns={4} stackable>
           <Grid.Row>
-            <ColumnComponent header="Minimum Contribution" desc={data["0"]} />
-            <ColumnComponent header="Available Balance" desc={data["1"]} />
+            <ColumnComponent header={data["0"]} desc="Minimum Contribution" />
+            <ColumnComponent desc="Available Balance" header={data["1"]} />
           </Grid.Row>
           <Grid.Row>
-            <ColumnComponent header="Requests Count" desc={data["2"]} />
-            <ColumnComponent header="Approvers Count" desc={data["3"]} />
+            <ColumnComponent desc="Requests Count" header={data["2"]} />
+            <ColumnComponent desc="Approvers Count" header={data["3"]} />
           </Grid.Row>
         </Grid>
+        <Button content="View Requests" primary onClick={() => null} />
       </Container>
     </Container>
   );
