@@ -11,7 +11,7 @@ const FormComp: React.FC = () => {
   return (
     <Form onSubmit={contributionHandler}>
       <Form.Field>
-        <h1>Contribute to this campaign!</h1>
+        <label>Contribute to this campaign!</label>
         <Input
           label="ether"
           size="big"
