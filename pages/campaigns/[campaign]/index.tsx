@@ -31,7 +31,7 @@ const ColumnComponent: React.FC<{ header: string; desc: string }> = ({
 const Campaign: React.FC<{ data: any }> = ({ data }) => {
   const [error, setError] = React.useState<boolean>(false);
   const [loading, setLoading] = React.useState<boolean>(false);
-  const { query, reload, pathname } = useRouter();
+  const { query, reload, push } = useRouter();
   data = JSON.parse(data);
 
   const disappearingError = () => {
@@ -88,7 +88,15 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
               <ColumnComponent desc="Requests Count" header={data["2"]} />
               <ColumnComponent desc="Approvers Count" header={data["3"]} />
             </Grid.Row>
-            <Button content="View Requests" primary onClick={() => null} />
+            <Button
+              content="View Requests"
+              primary
+              onClick={() =>
+                push(
+                  `/campaigns/${query.campaign}/requests?address=${query.campaign}`
+                )
+              }
+            />
           </Grid>
           <FormComp dataSubmitter={contributeHandler} />
         </Grid>
