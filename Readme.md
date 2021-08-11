@@ -48,13 +48,13 @@
 
 ### For installing the packages(same for both ethereum folder and frontend folder)
 
----
-
-<h1 align="center">For contracts</h1>
-
 ```
 yarn
 ```
+
+---
+
+<h1 align="center">For contracts</h1>
 
 ### For compiling the typescript files
 
