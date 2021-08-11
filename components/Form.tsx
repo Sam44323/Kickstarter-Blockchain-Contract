@@ -13,7 +13,7 @@ const FormComp: React.FC = () => {
       <Form.Field>
         <h1>Contribute to this campaign!</h1>
         <Input
-          label="wei"
+          label="ether"
           size="big"
           placeholder="Enter amount!"
           labelPosition="right"
