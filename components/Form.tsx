@@ -26,7 +26,7 @@ const FormComp: React.FC<{
           value={price}
         />
       </Form.Field>
-      <Button type="Contribute" primary content={buttonName} />
+      <Button primary content={buttonName} />
     </Form>
   );
 };
