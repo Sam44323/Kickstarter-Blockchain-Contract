@@ -1,6 +1,12 @@
 export interface NewRequestInput {
-  value: string;
+  value: any;
   changeHandler: (e: any) => void;
   label: string;
   placeholder: string;
+}
+
+export interface RequestForm {
+  description: string;
+  amount: string;
+  recipient: string;
 }

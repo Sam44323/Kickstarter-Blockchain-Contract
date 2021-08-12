@@ -4,10 +4,17 @@ import { NewRequestInput } from "../../../../utils/interfaces";
 
 const FormInputContainer: React.FC<NewRequestInput> = (props) => {
   return (
-    <Form.Input>
-      <label>{props.label}</label>
-      <Input />
-    </Form.Input>
+    <>
+      <h3>{props.label}</h3>
+      <Form.Input>
+        <Input
+          size="big"
+          placeholder={props.placeholder}
+          onChange={props.changeHandler}
+          value={props.value}
+        />
+      </Form.Input>
+    </>
   );
 };
 
@@ -16,14 +23,24 @@ const NewRequest: React.FC = () => {
     <Container>
       <h1>Create a New Request</h1>
       <Form>
-        <Form.Input>
-          <label>Description</label>
-          <Input
-            size="big"
-            placeholder="Enter amount!"
-            onChange={(e) => null}
-          />
-        </Form.Input>
+        <FormInputContainer
+          label="Description"
+          changeHandler={() => null}
+          placeholder="Buy some batteries"
+          value=""
+        />
+        <FormInputContainer
+          label="Amount in ether"
+          changeHandler={() => null}
+          placeholder="100"
+          value=""
+        />
+        <FormInputContainer
+          label="Recipient"
+          changeHandler={() => null}
+          placeholder="0x465858"
+          value=""
+        />
       </Form>
     </Container>
   );
