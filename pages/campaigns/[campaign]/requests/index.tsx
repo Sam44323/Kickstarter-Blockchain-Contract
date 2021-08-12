@@ -12,7 +12,11 @@ const Request: React.FC = () => {
       <Button
         primary
         content="Add Requests"
-        onClick={() => push(`/campaigns/${query.campaign}/requests/new`)}
+        onClick={() =>
+          push(
+            `/campaigns/${query.campaign}/requests/new?address=${query.campaign}`
+          )
+        }
       />
     </Container>
   );
