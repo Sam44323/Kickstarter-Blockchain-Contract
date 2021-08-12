@@ -1,8 +1,9 @@
 export interface NewRequestInput {
   value: any;
-  changeHandler: (e: any) => void;
+  changeHandler: (value: string, name: string) => void;
   label: string;
   placeholder: string;
+  propName: string;
 }
 
 export interface RequestForm {

@@ -1,6 +1,6 @@
-import React from "react";
-import { Container, Form, Input } from "semantic-ui-react";
-import { NewRequestInput } from "../../../../utils/interfaces";
+import React, { FormEvent } from "react";
+import { Button, Container, Form, Input } from "semantic-ui-react";
+import { NewRequestInput, RequestForm } from "../../../../utils/interfaces";
 
 const FormInputContainer: React.FC<NewRequestInput> = (props) => {
   return (
@@ -10,7 +10,7 @@ const FormInputContainer: React.FC<NewRequestInput> = (props) => {
         <Input
           size="big"
           placeholder={props.placeholder}
-          onChange={props.changeHandler}
+          onChange={(e) => props.changeHandler(e.target.value, props.propName)}
           value={props.value}
         />
       </Form.Input>
@@ -19,28 +19,55 @@ const FormInputContainer: React.FC<NewRequestInput> = (props) => {
 };
 
 const NewRequest: React.FC = () => {
+  const [requestForm, setRequestForm] = React.useState<RequestForm>({
+    amount: "",
+    description: "",
+    recipient: "",
+  });
+
+  const valueChanger = (value: string, name: string) => {
+    setRequestForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const formSubmitHandler = (e: FormEvent) => {
+    e.preventDefault();
+    console.log(requestForm);
+    setRequestForm({
+      amount: "",
+      description: "",
+      recipient: "",
+    });
+  };
+
   return (
     <Container>
       <h1>Create a New Request</h1>
-      <Form>
+      <Form onSubmit={formSubmitHandler}>
         <FormInputContainer
           label="Description"
-          changeHandler={() => null}
+          changeHandler={valueChanger}
           placeholder="Buy some batteries"
-          value=""
+          value={requestForm.description}
+          propName="description"
         />
         <FormInputContainer
           label="Amount in ether"
-          changeHandler={() => null}
+          changeHandler={valueChanger}
           placeholder="100"
-          value=""
+          value={requestForm.amount}
+          propName="amount"
         />
         <FormInputContainer
           label="Recipient"
-          changeHandler={() => null}
+          changeHandler={valueChanger}
           placeholder="0x465858"
-          value=""
+          value={requestForm.recipient}
+          propName="recipient"
         />
+        <Button type="submit" primary icon="add" content="Create" />
       </Form>
     </Container>
   );
