@@ -1,6 +1,8 @@
 import React, { FormEvent } from "react";
 import { Button, Container, Form, Input } from "semantic-ui-react";
 import { NewRequestInput, RequestForm } from "../../../../utils/interfaces";
+import CampaignCreator from "../../../../ethereum/Campaign";
+import { useRouter } from "next/router";
 
 const FormInputContainer: React.FC<NewRequestInput> = (props) => {
   return (
@@ -18,12 +20,22 @@ const FormInputContainer: React.FC<NewRequestInput> = (props) => {
   );
 };
 
-const NewRequest: React.FC = () => {
+const NewRequest: React.FC<{ methods: any }> = ({ methods }) => {
   const [requestForm, setRequestForm] = React.useState<RequestForm>({
     amount: "",
     description: "",
     recipient: "",
   });
+  const [campaign, setCampaign] = React.useState<any>();
+  const { query } = useRouter();
+
+  React.useEffect(() => {
+    const getContract = async () => {
+      const campaignData = await CampaignCreator(query.campaign);
+      setCampaign(campaignData.methods);
+    };
+    getContract();
+  }, []);
 
   const valueChanger = (value: string, name: string) => {
     setRequestForm((prev) => ({
@@ -34,7 +46,6 @@ const NewRequest: React.FC = () => {
 
   const formSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
-    console.log(requestForm);
     setRequestForm({
       amount: "",
       description: "",
