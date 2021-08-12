@@ -102,7 +102,7 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
               </Grid.Column>
             </Grid.Row>
           </Grid>
-          <FormComp dataSubmitter={contributeHandler} />
+          <FormComp dataSubmitter={contributeHandler} buttonName="Contribute" />
         </Grid>
       </Container>
     </>

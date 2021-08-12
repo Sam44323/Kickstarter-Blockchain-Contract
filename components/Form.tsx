@@ -1,9 +1,10 @@
 import React, { FormEvent } from "react";
 import { Form, Input, Button } from "semantic-ui-react";
 
-const FormComp: React.FC<{ dataSubmitter: (value: string) => void }> = ({
-  dataSubmitter,
-}) => {
+const FormComp: React.FC<{
+  dataSubmitter: (value: string) => void;
+  buttonName: string;
+}> = ({ dataSubmitter, buttonName }) => {
   const [price, setPrice] = React.useState<string>("");
 
   const contributionHandler = (e: FormEvent) => {
@@ -25,7 +26,7 @@ const FormComp: React.FC<{ dataSubmitter: (value: string) => void }> = ({
           value={price}
         />
       </Form.Field>
-      <Button type="Contribute" primary content="Create" />
+      <Button type="Contribute" primary content={buttonName} />
     </Form>
   );
 };
