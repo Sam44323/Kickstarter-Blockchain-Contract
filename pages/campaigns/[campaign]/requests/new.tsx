@@ -56,7 +56,7 @@ const NewRequest: React.FC = () => {
         <FormInputContainer
           label="Amount in ether"
           changeHandler={valueChanger}
-          placeholder="100"
+          placeholder="1"
           value={requestForm.amount}
           propName="amount"
         />
