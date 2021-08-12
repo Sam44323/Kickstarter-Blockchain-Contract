@@ -1,5 +1,12 @@
 import React, { FormEvent } from "react";
-import { Button, Container, Form, Input } from "semantic-ui-react";
+import {
+  Button,
+  Container,
+  Form,
+  Input,
+  Loader,
+  Message,
+} from "semantic-ui-react";
 import { NewRequestInput, RequestForm } from "../../../../utils/interfaces";
 import CampaignCreator from "../../../../ethereum/Campaign";
 import { useRouter } from "next/router";
@@ -27,6 +34,8 @@ const NewRequest: React.FC<{ methods: any }> = ({ methods }) => {
     recipient: "",
   });
   const [campaign, setCampaign] = React.useState<any>();
+  const [error, setError] = React.useState<boolean>(false);
+  const [loading, setLoading] = React.useState<boolean>(false);
   const { query } = useRouter();
 
   React.useEffect(() => {
@@ -54,33 +63,47 @@ const NewRequest: React.FC<{ methods: any }> = ({ methods }) => {
   };
 
   return (
-    <Container>
-      <h1>Create a New Request</h1>
-      <Form onSubmit={formSubmitHandler}>
-        <FormInputContainer
-          label="Description"
-          changeHandler={valueChanger}
-          placeholder="Buy some batteries"
-          value={requestForm.description}
-          propName="description"
-        />
-        <FormInputContainer
-          label="Amount in ether"
-          changeHandler={valueChanger}
-          placeholder="1"
-          value={requestForm.amount}
-          propName="amount"
-        />
-        <FormInputContainer
-          label="Recipient"
-          changeHandler={valueChanger}
-          placeholder="0x465858"
-          value={requestForm.recipient}
-          propName="recipient"
-        />
-        <Button type="submit" primary icon="add" content="Create" />
-      </Form>
-    </Container>
+    <>
+      {loading && <Loader active size="big" content="Processing" />}
+      <Container>
+        {error && (
+          <Message
+            negative
+            header="Transaction Failed!"
+            list={[
+              "Either you sent value less than the minimum contribution",
+              "Sent some wrong value",
+              "Rejected the transaction for proceeding!",
+            ]}
+          />
+        )}
+        <h1>Create a New Request</h1>
+        <Form onSubmit={formSubmitHandler}>
+          <FormInputContainer
+            label="Description"
+            changeHandler={valueChanger}
+            placeholder="Buy some batteries"
+            value={requestForm.description}
+            propName="description"
+          />
+          <FormInputContainer
+            label="Amount in ether"
+            changeHandler={valueChanger}
+            placeholder="1"
+            value={requestForm.amount}
+            propName="amount"
+          />
+          <FormInputContainer
+            label="Recipient"
+            changeHandler={valueChanger}
+            placeholder="0x465858"
+            value={requestForm.recipient}
+            propName="recipient"
+          />
+          <Button type="submit" primary icon="add" content="Create" />
+        </Form>
+      </Container>
+    </>
   );
 };
 
