@@ -14,7 +14,7 @@ const Request: React.FC = () => {
         content="Add Requests"
         onClick={() =>
           push(
-            `/campaigns/${query.campaign}/requests/new?address=${query.campaign}`
+            `/campaigns/${query.address}/requests/new?address=${query.address}`
           )
         }
       />
