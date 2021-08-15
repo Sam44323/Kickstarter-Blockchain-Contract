@@ -21,4 +21,5 @@ export interface CustomRowInter {
   value: string;
   approversCount: number;
   approveRequest: (id: number) => void;
+  finalizeRequest: (id: number) => void;
 }
