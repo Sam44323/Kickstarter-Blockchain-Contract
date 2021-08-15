@@ -107,6 +107,10 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
       <Button
         primary
         content="Add Requests"
+        floated="right"
+        style={{
+          marginBottom: "10px",
+        }}
         onClick={() =>
           push(
             `/campaigns/${query.address}/requests/new?address=${query.address}`
