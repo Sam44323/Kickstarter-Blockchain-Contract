@@ -30,7 +30,11 @@ const RowCellContent: React.FC<CustomRowInter> = ({
           Approve
         </Button>
       </Cell>
-      <Cell>Final</Cell>
+      <Cell>
+        <Button color="teal" basic>
+          Finalize
+        </Button>
+      </Cell>
     </Row>
   );
 };
