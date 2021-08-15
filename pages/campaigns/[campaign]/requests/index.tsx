@@ -18,8 +18,9 @@ const RowCellContent: React.FC<CustomRowInter> = ({
   finalizeRequest,
 }) => {
   const { Row, Cell } = Table;
+  const readyToFinalize = +approvalCount > +approversCount / 2;
   return (
-    <Row disabled={complete}>
+    <Row positive={readyToFinalize && !complete} disabled={complete}>
       <Cell>{id}</Cell>
       <Cell>{description}</Cell>
       <Cell>{web3.utils.fromWei(value, "ether")}</Cell>
