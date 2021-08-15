@@ -7,6 +7,7 @@ import CampaignGenerator from "../../../../ethereum/Campaign";
 const Request: React.FC<{ data: any }> = ({ data }) => {
   const { query, push } = useRouter();
   const { Row, Header, HeaderCell, Body } = Table;
+  data = JSON.parse(data);
   return (
     <Container>
       <h3>Requests</h3>
@@ -31,6 +32,19 @@ const Request: React.FC<{ data: any }> = ({ data }) => {
             <HeaderCell>Finalize</HeaderCell>
           </Row>
         </Header>
+        <Body>
+          {data.map((item, index) => (
+            <Row key={index}>
+              <HeaderCell>{index}</HeaderCell>
+              <HeaderCell>{item.description}</HeaderCell>
+              <HeaderCell>{item.value}</HeaderCell>
+              <HeaderCell>{item.recipient}</HeaderCell>
+              <HeaderCell>{item.approvalCount}</HeaderCell>
+              <HeaderCell>{item.complete ? "Yes" : "No"}</HeaderCell>
+              <HeaderCell>False</HeaderCell>
+            </Row>
+          ))}
+        </Body>
       </Table>
     </Container>
   );
