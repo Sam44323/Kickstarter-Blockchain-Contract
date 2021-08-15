@@ -3,6 +3,29 @@ import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
 import { Container, Button, Table } from "semantic-ui-react";
 import CampaignGenerator from "../../../../ethereum/Campaign";
+import { CustomRowInter } from "../../../../utils/interfaces";
+
+const RowCellContent: React.FC<CustomRowInter> = ({
+  id,
+  approvalCount,
+  complete,
+  description,
+  recipient,
+  value,
+}) => {
+  const { Row, HeaderCell } = Table;
+  return (
+    <Row>
+      <HeaderCell>{id}</HeaderCell>
+      <HeaderCell>{description}</HeaderCell>
+      <HeaderCell>{value}</HeaderCell>
+      <HeaderCell>{recipient}</HeaderCell>
+      <HeaderCell>{approvalCount}</HeaderCell>
+      <HeaderCell>{complete ? "Yes" : "No"}</HeaderCell>
+      <HeaderCell>Final</HeaderCell>
+    </Row>
+  );
+};
 
 const Request: React.FC<{ data: any }> = ({ data }) => {
   const { query, push } = useRouter();
@@ -34,15 +57,7 @@ const Request: React.FC<{ data: any }> = ({ data }) => {
         </Header>
         <Body>
           {data.map((item, index) => (
-            <Row key={index}>
-              <HeaderCell>{index}</HeaderCell>
-              <HeaderCell>{item.description}</HeaderCell>
-              <HeaderCell>{item.value}</HeaderCell>
-              <HeaderCell>{item.recipient}</HeaderCell>
-              <HeaderCell>{item.approvalCount}</HeaderCell>
-              <HeaderCell>{item.complete ? "Yes" : "No"}</HeaderCell>
-              <HeaderCell>False</HeaderCell>
-            </Row>
+            <RowCellContent {...item} key={index} />
           ))}
         </Body>
       </Table>
