@@ -1,11 +1,12 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
-import { Container, Button } from "semantic-ui-react";
+import { Container, Button, Table } from "semantic-ui-react";
 import CampaignGenerator from "../../../../ethereum/Campaign";
 
 const Request: React.FC<{ data: any }> = ({ data }) => {
   const { query, push } = useRouter();
+  const { Row, Header, HeaderCell, Body } = Table;
   return (
     <Container>
       <h3>Requests</h3>
@@ -18,6 +19,19 @@ const Request: React.FC<{ data: any }> = ({ data }) => {
           )
         }
       />
+      <Table celled textAlign="center">
+        <Header>
+          <Row>
+            <HeaderCell>ID</HeaderCell>
+            <HeaderCell>Description</HeaderCell>
+            <HeaderCell>Amount</HeaderCell>
+            <HeaderCell>Recipient</HeaderCell>
+            <HeaderCell>Approval Count</HeaderCell>
+            <HeaderCell>Approve</HeaderCell>
+            <HeaderCell>Finalize</HeaderCell>
+          </Row>
+        </Header>
+      </Table>
     </Container>
   );
 };
