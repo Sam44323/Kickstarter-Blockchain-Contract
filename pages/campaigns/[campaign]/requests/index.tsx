@@ -16,7 +16,6 @@ const RowCellContent: React.FC<CustomRowInter> = ({
   approversCount,
 }) => {
   const { Row, Cell } = Table;
-
   return (
     <Row>
       <Cell>{id}</Cell>
@@ -27,7 +26,7 @@ const RowCellContent: React.FC<CustomRowInter> = ({
         {approvalCount}/{approversCount}
       </Cell>
       <Cell>
-        <Button color="green" basic onClick={() => approveRequest(+id)}>
+        <Button color="green" basic onClick={() => approveRequest(+id - 1)}>
           Approve
         </Button>
       </Cell>
@@ -41,11 +40,11 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
   approversCount,
 }) => {
   const { query, push } = useRouter();
+  const [campaign, setCampaign] = React.useState<any>();
   const { Row, Header, HeaderCell, Body } = Table;
   const [loading, setLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<boolean>(false);
   data = JSON.parse(data);
-
   const disappearingError = () => {
     setTimeout(() => {
       setError(false);
@@ -55,12 +54,26 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
   const approveRequestHandler = async (reqId: number) => {
     setLoading(true);
     try {
+      const accounts = await web3.eth.getAccounts();
+      await campaign.methods.approveRequest(reqId).send({
+        from: accounts[0],
+      });
+      window.location.reload();
     } catch (error) {
+      console.log(error);
       setLoading(false);
       setError(true);
       disappearingError();
     }
   };
+
+  React.useEffect(() => {
+    const getCampaign = async () => {
+      const campaign = await CampaignGenerator(query.address);
+      setCampaign(campaign);
+    };
+    getCampaign();
+  }, []);
 
   return (
     <Container>
@@ -123,7 +136,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     )
   );
   const approversCount = await campaign.methods.approversCount().call();
-  console.log(approversCount);
   return {
     props: {
       data: JSON.stringify(requests),
