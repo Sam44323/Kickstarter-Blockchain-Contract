@@ -13,6 +13,7 @@ const RowCellContent: React.FC<CustomRowInter> = ({
   description,
   recipient,
   value,
+  complete,
   approversCount,
   finalizeRequest,
 }) => {
@@ -27,14 +28,18 @@ const RowCellContent: React.FC<CustomRowInter> = ({
         {approvalCount}/{approversCount}
       </Cell>
       <Cell>
-        <Button color="green" basic onClick={() => approveRequest(+id - 1)}>
-          Approve
-        </Button>
+        {!complete && (
+          <Button color="green" basic onClick={() => approveRequest(+id - 1)}>
+            Approve
+          </Button>
+        )}
       </Cell>
       <Cell>
-        <Button color="teal" basic onClick={() => finalizeRequest(+id - 1)}>
-          Finalize
-        </Button>
+        {!complete && (
+          <Button color="teal" basic onClick={() => finalizeRequest(+id - 1)}>
+            Finalize
+          </Button>
+        )}
       </Cell>
     </Row>
   );
