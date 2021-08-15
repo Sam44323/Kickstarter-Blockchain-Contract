@@ -51,7 +51,6 @@ const Campaign: React.FC<{ data: any }> = ({ data }) => {
       });
       reload();
     } catch (err) {
-      console.log(err);
       setLoading(false);
       setError(true);
       disappearingError();

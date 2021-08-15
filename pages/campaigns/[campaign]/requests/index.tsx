@@ -56,7 +56,6 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
   const [loading, setLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<boolean>(false);
   data = JSON.parse(data);
-  console.log(data.length);
   const disappearingError = () => {
     setTimeout(() => {
       setError(false);
@@ -87,7 +86,6 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
       });
       window.location.reload();
     } catch (error) {
-      console.log(error);
       setLoading(false);
       setError(true);
       disappearingError();
