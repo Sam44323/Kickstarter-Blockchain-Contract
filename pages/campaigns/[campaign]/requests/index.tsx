@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
-import { Container, Button, Table } from "semantic-ui-react";
+import { Container, Button, Table, Loader, Message } from "semantic-ui-react";
 import CampaignGenerator from "../../../../ethereum/Campaign";
 import { CustomRowInter } from "../../../../utils/interfaces";
 import web3 from "../../../../ethereum/web3";
@@ -42,12 +42,29 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
 }) => {
   const { query, push } = useRouter();
   const { Row, Header, HeaderCell, Body } = Table;
+  const [loading, setLoading] = React.useState<boolean>(false);
+  const [error, setError] = React.useState<boolean>(false);
   data = JSON.parse(data);
 
-  const approveRequestHandler = async (reqId: number) => {};
+  const disappearingError = () => {
+    setTimeout(() => {
+      setError(false);
+    }, 7500);
+  };
+
+  const approveRequestHandler = async (reqId: number) => {
+    setLoading(true);
+    try {
+    } catch (error) {
+      setLoading(false);
+      setError(true);
+      disappearingError();
+    }
+  };
 
   return (
     <Container>
+      {loading && <Loader active size="big" content="Processing" />}
       <h3>Requests</h3>
       <Button
         primary
@@ -58,6 +75,17 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
           )
         }
       />
+      {error && (
+        <Message
+          negative
+          header="Transaction Failed!"
+          list={[
+            "Either you sent value less than the minimum contribution",
+            "Sent some wrong value",
+            "Rejected the transaction for proceeding!",
+          ]}
+        />
+      )}
       <Table celled textAlign="center">
         <Header>
           <Row>
