@@ -44,9 +44,7 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
   const { Row, Header, HeaderCell, Body } = Table;
   data = JSON.parse(data);
 
-  const approveRequestHandler = async (reqId: number) => {
-    alert(reqId);
-  };
+  const approveRequestHandler = async (reqId: number) => {};
 
   return (
     <Container>
