@@ -14,6 +14,7 @@ const RowCellContent: React.FC<CustomRowInter> = ({
   recipient,
   value,
   approversCount,
+  finalizeRequest,
 }) => {
   const { Row, Cell } = Table;
   return (
@@ -31,7 +32,7 @@ const RowCellContent: React.FC<CustomRowInter> = ({
         </Button>
       </Cell>
       <Cell>
-        <Button color="teal" basic>
+        <Button color="teal" basic onClick={() => finalizeRequest(+id - 1)}>
           Finalize
         </Button>
       </Cell>
@@ -68,6 +69,10 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
       setError(true);
       disappearingError();
     }
+  };
+
+  const finalizeRequestHandler = async (id: number) => {
+    console.log("");
   };
 
   React.useEffect(() => {
@@ -122,6 +127,7 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
               id={index + 1}
               approversCount={approversCount}
               approveRequest={approveRequestHandler}
+              finalizeRequest={finalizeRequestHandler}
             />
           ))}
         </Body>
