@@ -4,6 +4,7 @@ import { GetServerSideProps } from "next";
 import { Container, Button, Table } from "semantic-ui-react";
 import CampaignGenerator from "../../../../ethereum/Campaign";
 import { CustomRowInter } from "../../../../utils/interfaces";
+import web3 from "../../../../ethereum/web3";
 
 const RowCellContent: React.FC<CustomRowInter> = ({
   id,
@@ -19,7 +20,7 @@ const RowCellContent: React.FC<CustomRowInter> = ({
     <Row>
       <Cell>{id}</Cell>
       <Cell>{description}</Cell>
-      <Cell>{value}</Cell>
+      <Cell>{web3.utils.fromWei(value, "ether")}</Cell>
       <Cell>{recipient}</Cell>
       <Cell>
         {approvalCount}/{approversCount}
