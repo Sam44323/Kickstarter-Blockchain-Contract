@@ -56,8 +56,8 @@ const Request: React.FC<{ data: any }> = ({ data }) => {
           </Row>
         </Header>
         <Body>
-          {data.map((item, index) => (
-            <RowCellContent {...item} key={index} />
+          {data.map((item: CustomRowInter, index: any) => (
+            <RowCellContent {...item} key={index} id={index + 1} />
           ))}
         </Body>
       </Table>
