@@ -19,7 +19,7 @@ const RowCellContent: React.FC<CustomRowInter> = ({
 }) => {
   const { Row, Cell } = Table;
   return (
-    <Row>
+    <Row disabled={complete}>
       <Cell>{id}</Cell>
       <Cell>{description}</Cell>
       <Cell>{web3.utils.fromWei(value, "ether")}</Cell>
