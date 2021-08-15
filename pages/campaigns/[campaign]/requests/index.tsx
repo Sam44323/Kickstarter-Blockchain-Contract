@@ -16,6 +16,7 @@ const RowCellContent: React.FC<CustomRowInter> = ({
   approversCount,
 }) => {
   const { Row, Cell } = Table;
+
   return (
     <Row>
       <Cell>{id}</Cell>
@@ -25,7 +26,11 @@ const RowCellContent: React.FC<CustomRowInter> = ({
       <Cell>
         {approvalCount}/{approversCount}
       </Cell>
-      <Cell>{complete ? "Yes" : "No"}</Cell>
+      <Cell>
+        <Button color="green" basic>
+          Approve
+        </Button>
+      </Cell>
       <Cell>Final</Cell>
     </Row>
   );

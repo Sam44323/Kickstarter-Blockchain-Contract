@@ -20,4 +20,5 @@ export interface CustomRowInter {
   recipient: string;
   value: string;
   approversCount: number;
+  approveRequest: (id: number) => void;
 }
