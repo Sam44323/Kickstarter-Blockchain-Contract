@@ -12,6 +12,7 @@ const RowCellContent: React.FC<CustomRowInter> = ({
   description,
   recipient,
   value,
+  approversCount,
 }) => {
   const { Row, Cell } = Table;
   return (
@@ -20,14 +21,19 @@ const RowCellContent: React.FC<CustomRowInter> = ({
       <Cell>{description}</Cell>
       <Cell>{value}</Cell>
       <Cell>{recipient}</Cell>
-      <Cell>{approvalCount}</Cell>
+      <Cell>
+        {approvalCount}/{approversCount}
+      </Cell>
       <Cell>{complete ? "Yes" : "No"}</Cell>
       <Cell>Final</Cell>
     </Row>
   );
 };
 
-const Request: React.FC<{ data: any }> = ({ data }) => {
+const Request: React.FC<{ data: any; approversCount: any }> = ({
+  data,
+  approversCount,
+}) => {
   const { query, push } = useRouter();
   const { Row, Header, HeaderCell, Body } = Table;
   data = JSON.parse(data);
@@ -57,7 +63,12 @@ const Request: React.FC<{ data: any }> = ({ data }) => {
         </Header>
         <Body>
           {data.map((item: CustomRowInter, index: any) => (
-            <RowCellContent {...item} key={index} id={index + 1} />
+            <RowCellContent
+              {...item}
+              key={index}
+              id={index + 1}
+              approversCount={approversCount}
+            />
           ))}
         </Body>
       </Table>
@@ -73,9 +84,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       campaign.methods.requests(index).call()
     )
   );
+  const approversCount = await campaign.methods.approversCount().call();
+  console.log(approversCount);
   return {
     props: {
       data: JSON.stringify(requests),
+      approversCount,
     },
   };
 };

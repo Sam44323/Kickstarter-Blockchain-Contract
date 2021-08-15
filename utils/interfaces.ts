@@ -19,4 +19,5 @@ export interface CustomRowInter {
   description: string;
   recipient: string;
   value: string;
+  approversCount: number;
 }
