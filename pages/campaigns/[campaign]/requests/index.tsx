@@ -56,6 +56,7 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
   const [loading, setLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<boolean>(false);
   data = JSON.parse(data);
+  console.log(data.length);
   const disappearingError = () => {
     setTimeout(() => {
       setError(false);
@@ -153,6 +154,9 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
           ))}
         </Body>
       </Table>
+      <p>
+        Found {data.length} request{data.length > 1 && "s"}
+      </p>
     </Container>
   );
 };
