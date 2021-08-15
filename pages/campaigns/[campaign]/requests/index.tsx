@@ -72,7 +72,19 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
   };
 
   const finalizeRequestHandler = async (id: number) => {
-    console.log("");
+    setLoading(true);
+    try {
+      const accounts = await web3.eth.getAccounts();
+      await campaign.methods.finalizeRequest(id).send({
+        from: accounts[0],
+      });
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+      setError(true);
+      disappearingError();
+    }
   };
 
   React.useEffect(() => {
@@ -82,7 +94,6 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
     };
     getCampaign();
   }, []);
-
   return (
     <Container>
       {loading && <Loader active size="big" content="Processing" />}
