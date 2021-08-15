@@ -9,7 +9,7 @@ import web3 from "../../../../ethereum/web3";
 const RowCellContent: React.FC<CustomRowInter> = ({
   id,
   approvalCount,
-  complete,
+  approveRequest,
   description,
   recipient,
   value,
@@ -27,7 +27,7 @@ const RowCellContent: React.FC<CustomRowInter> = ({
         {approvalCount}/{approversCount}
       </Cell>
       <Cell>
-        <Button color="green" basic>
+        <Button color="green" basic onClick={() => approveRequest(+id)}>
           Approve
         </Button>
       </Cell>
@@ -43,6 +43,11 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
   const { query, push } = useRouter();
   const { Row, Header, HeaderCell, Body } = Table;
   data = JSON.parse(data);
+
+  const approveRequestHandler = async (reqId: number) => {
+    alert(reqId);
+  };
+
   return (
     <Container>
       <h3>Requests</h3>
@@ -74,6 +79,7 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
               key={index}
               id={index + 1}
               approversCount={approversCount}
+              approveRequest={approveRequestHandler}
             />
           ))}
         </Body>
