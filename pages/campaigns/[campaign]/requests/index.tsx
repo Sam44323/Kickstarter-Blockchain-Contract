@@ -60,7 +60,6 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
       });
       window.location.reload();
     } catch (error) {
-      console.log(error);
       setLoading(false);
       setError(true);
       disappearingError();
