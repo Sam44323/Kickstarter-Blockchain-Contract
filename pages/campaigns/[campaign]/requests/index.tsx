@@ -6,7 +6,6 @@ import CampaignGenerator from "../../../../ethereum/Campaign";
 
 const Request: React.FC<{ data: any }> = ({ data }) => {
   const { query, push } = useRouter();
-  console.log(JSON.parse(data)[0]);
   return (
     <Container>
       <h3>Requests</h3>
