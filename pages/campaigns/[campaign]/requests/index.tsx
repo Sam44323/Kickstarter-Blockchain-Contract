@@ -155,7 +155,7 @@ const Request: React.FC<{ data: any; approversCount: any }> = ({
         </Body>
       </Table>
       <p>
-        Found {data.length} request{data.length > 1 && "s"}
+        Found {data.length} request{data.length > 1 && "s"}.
       </p>
     </Container>
   );
