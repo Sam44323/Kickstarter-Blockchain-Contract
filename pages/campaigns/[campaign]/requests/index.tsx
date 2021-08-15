@@ -13,16 +13,16 @@ const RowCellContent: React.FC<CustomRowInter> = ({
   recipient,
   value,
 }) => {
-  const { Row, HeaderCell } = Table;
+  const { Row, Cell } = Table;
   return (
     <Row>
-      <HeaderCell>{id}</HeaderCell>
-      <HeaderCell>{description}</HeaderCell>
-      <HeaderCell>{value}</HeaderCell>
-      <HeaderCell>{recipient}</HeaderCell>
-      <HeaderCell>{approvalCount}</HeaderCell>
-      <HeaderCell>{complete ? "Yes" : "No"}</HeaderCell>
-      <HeaderCell>Final</HeaderCell>
+      <Cell>{id}</Cell>
+      <Cell>{description}</Cell>
+      <Cell>{value}</Cell>
+      <Cell>{recipient}</Cell>
+      <Cell>{approvalCount}</Cell>
+      <Cell>{complete ? "Yes" : "No"}</Cell>
+      <Cell>Final</Cell>
     </Row>
   );
 };
